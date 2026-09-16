@@ -6,6 +6,7 @@ public class RoomBookingTest {
         RoomBooking roomBooking4 = new RoomBooking(202,"Suite",40000,true);
         java.util.Scanner input = new java.util.Scanner(System.in);
         int num = 0;
+        int nights =0;
         while (num !=5){
             System.out.println("===HOTEL MENU===");
             System.out.println("1. View Available Rooms");
@@ -37,15 +38,27 @@ public class RoomBookingTest {
                     if(roomBooking1.getRoomNumber() == num){
                        if(roomBooking1.isAvailable()){
                            System.out.println("Room "+roomBooking1.getRoomNumber()+" is Available");
+
+                           System.out.println("Enter the number of nights you want to book: ");
+                           nights = input.nextInt();
+
                            System.out.print("Enter Yes to book or No to Cancel: ");
                            String book = input.next();
                            if(book.equalsIgnoreCase("Yes")){
                                System.out.println("Room " +roomBooking1.getRoomNumber()+" Booked Successfully");
                                roomBooking1.setIsAvailable(false);
+
+                               System.out.println("Room type: "+roomBooking1.getRoomType() );
+                               System.out.println("Price: "+ roomBooking1.getPrice());
+                               System.out.println("number of the night: "+ nights);
+                               System.out.println("Total amount to pay: "+(roomBooking1.getPrice()*nights));
+                               System.out.println();
                            }
                            else if(book.equalsIgnoreCase("No")){
                                roomBooking1.setIsAvailable(true);
                            }
+
+
                        }
                        else{
                            System.out.println("Room Number is already booked");
@@ -59,6 +72,12 @@ public class RoomBookingTest {
                             if(book.equalsIgnoreCase("Yes")){
                                 System.out.println("Room " +roomBooking2.getRoomNumber()+" Booked Successfully");
                                 roomBooking2.setIsAvailable(false);
+
+                                System.out.println("Room type: "+roomBooking2.getRoomType() );
+                                System.out.println("Price: "+ roomBooking2.getPrice());
+                                System.out.println("number of the night: "+ nights);
+                                System.out.println("Total amount to pay: "+(roomBooking2.getPrice()*nights));
+                                System.out.println();
                             }
                             else if(book.equalsIgnoreCase("No")){
                                 roomBooking2.setIsAvailable(true);
@@ -76,7 +95,14 @@ public class RoomBookingTest {
                             System.out.print("Enter Yes to book or No to Cancel: ");
                             String book = input.next();
                             if(book.equalsIgnoreCase("Yes")){
+                                System.out.println("Room " +roomBooking3.getRoomNumber()+" Booked Successfully");
                                 roomBooking3.setIsAvailable(false);
+
+                                System.out.println("Room type: "+roomBooking2.getRoomType() );
+                                System.out.println("Price: "+ roomBooking2.getPrice());
+                                System.out.println("number of the night: "+ nights);
+                                System.out.println("Total amount to pay: "+(roomBooking2.getPrice()*nights));
+                                System.out.println();
                             }
                             else if(book.equalsIgnoreCase("No")){
                                 roomBooking3.setIsAvailable(true);
@@ -91,7 +117,14 @@ public class RoomBookingTest {
                             System.out.print("Enter Yes to book or No to Cancel: ");
                             String book = input.next();
                             if(book.equalsIgnoreCase("Yes")){
+                                System.out.println("Room " +roomBooking4.getRoomNumber()+" Booked Successfully");
                                 roomBooking4.setIsAvailable(false);
+
+                                System.out.println("Room type: "+roomBooking2.getRoomType() );
+                                System.out.println("Price: "+ roomBooking2.getPrice());
+                                System.out.println("number of the night: "+ nights);
+                                System.out.println("Total amount to pay: "+(roomBooking2.getPrice()*nights));
+                                System.out.println();
                             }
                             else if(book.equalsIgnoreCase("No")){
                                 roomBooking4.setIsAvailable(true);
@@ -179,7 +212,7 @@ public class RoomBookingTest {
                         System.out.println(roomBooking4.getRoomNumber()+" has not been booked");
                     }
 
-//
+
                     break;
                 case 4:
                     System.out.println("Enter Room Number: ");
@@ -188,25 +221,25 @@ public class RoomBookingTest {
                         System.out.println("Room Number  Room Type   Price       Status");
                         System.out.println();
                         System.out.print(roomBooking1.getRoomNumber()+ "\t\t\t "+ roomBooking1.getRoomType()+ "\t\t"+ roomBooking1.getPrice()+ "\t\t");
-                        roomBooking1.roomStatus();
+                        System.out.println(roomBooking1.roomStatus());
                     } else if (roomBooking2.getRoomNumber() == num){
                         System.out.println("Room Number  Room Type   Price       Status");
                         System.out.println();
                         System.out.print(roomBooking2.getRoomNumber()+ "\t\t\t "+ roomBooking2.getRoomType()+ "\t\t"+ roomBooking2.getPrice()+ "\t\t");
-                        roomBooking2.roomStatus();
+                        System.out.println(roomBooking2.roomStatus());
 
                     }
                     else if (roomBooking3.getRoomNumber() == num){
                         System.out.println("Room Number  Room Type   Price       Status");
                         System.out.println();
                         System.out.print(roomBooking3.getRoomNumber()+ "\t\t\t "+ roomBooking3.getRoomType()+ "\t\t"+ roomBooking3.getPrice()+ "\t\t");
-                        roomBooking3.roomStatus();
+                        System.out.println(roomBooking3.roomStatus());
                     }
                     else if(roomBooking4.getRoomNumber() == num) {
                         System.out.println("Room Number  Room Type   Price       Status");
                         System.out.println();
                         System.out.print(roomBooking4.getRoomNumber()+ "\t\t\t "+ roomBooking4.getRoomType()+ "\t\t"+ roomBooking4.getPrice()+ "\t\t");
-                        roomBooking4.roomStatus();
+                        System.out.println(roomBooking4.roomStatus());
                     }
                     else {
                         System.out.println("Invalid Room Number");
@@ -226,6 +259,7 @@ public class RoomBookingTest {
 
 
         }
+
 
     }
 }
