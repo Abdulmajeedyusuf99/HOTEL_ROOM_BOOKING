@@ -30,13 +30,33 @@ public class RoomBooking {
 
         return isAvailable;
     }
-    public void roomStatus() {
+    public String roomStatus() {
         if(isAvailable){
-            System.out.println("Available");
+
+            return "Available";
         }
         else{
-            System.out.println("Booked");
+
+            return "Booked";
         }
 
+
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public void cancelBookedRoom(boolean isAvailable) {
+        this.isAvailable = isAvailable;
+        setIsAvailable(false);
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
